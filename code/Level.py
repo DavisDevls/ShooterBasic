@@ -6,7 +6,7 @@ import pygame.display
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import COLOR_WHITE, WIN_HEIGHT
+from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 
@@ -20,6 +20,9 @@ class Level:
         self.game_mode = game_mode
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+        self.entity_list.append(EntityFactory.get_entity('Player1'))
+        if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
+            self.entity_list.append(EntityFactory.get_entity('Player2'))
 
     def run(self):
         pygame.mixer_music.load(f'./asset/{self.name}.mp3')
@@ -36,12 +39,11 @@ class Level:
                     sys.exit()
 
             # printed text
-            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_WHITE,(20, 10))
-            self.level_text(14, f'Fps: {clock.get_fps():.0f}', COLOR_WHITE,(30, WIN_HEIGHT - 30))
-            self.level_text(14, f'Entidades: {len(self.entity_list)}', COLOR_WHITE,(53, WIN_HEIGHT - 10))
+            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_WHITE, (20, 10))
+            self.level_text(14, f'Fps: {clock.get_fps():.0f}', COLOR_WHITE, (30, WIN_HEIGHT - 30))
+            self.level_text(14, f'Entidades: {len(self.entity_list)}', COLOR_WHITE, (53, WIN_HEIGHT - 10))
             pygame.display.flip()
         pass
-
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
