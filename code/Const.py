@@ -4,6 +4,7 @@ import random
 import pygame
 
 
+
 def gerar_cor_rainbow():
     hue = random.random()
 
@@ -21,6 +22,7 @@ COLOR_RAINBOW = gerar_cor_rainbow()
 
 # E
 
+
 ENTITY_SPEED = {
     'Level1Bg0': 0,
     'Level1Bg1': 1,
@@ -29,7 +31,12 @@ ENTITY_SPEED = {
     'Level1Bg4': 4,
     'Player1': 3,
     'Player2': 3,
+    'Enemy1': 2,
+    'Enemy2': 1,
+    'Enemy3': 2,
 }
+
+EVENT_ENEMY = pygame.USEREVENT + 1
 
 # M
 MENU_OPTION = ('NEW GAME 1P',
@@ -50,6 +57,9 @@ PLAYER_KEY_RIGHT = {'Player1': pygame.K_d,
                     'Player2': pygame.K_RIGHT}
 PLAYER_KEY_SHOOT = {'Player1': pygame.K_SPACE,
                     'Player2': pygame.K_RETURN}
+
+# S
+SPAW_TIME = 5000
 
 # W
 WIN_WIDTH = 576
