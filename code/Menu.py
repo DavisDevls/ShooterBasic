@@ -7,9 +7,9 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_WIDTH, COLOR_ORANGE, MENU_OPTION, COLOR_WHITE, COLOR_RAINBOW
+from code.Const import WIN_WIDTH, C_ORANGE, MENU_OPTION, C_WHITE, C_RAINBOW
 
-COLOR_RAINBOW = (255, 255, 255)
+C_RAINBOW = (255, 255, 255)
 
 class Menu:
 
@@ -28,8 +28,8 @@ class Menu:
         return int(r * 255), int(g * 255), int(b * 255)  # RGB
 
     def atualizar_cor_rainbow(self):
-        global COLOR_RAINBOW
-        COLOR_RAINBOW = self.gerar_cor_rainbow()
+        global C_RAINBOW
+        C_RAINBOW = self.gerar_cor_rainbow()
 
     def run(self, ):
         menu_option = 0
@@ -41,14 +41,14 @@ class Menu:
 
             self.atualizar_cor_rainbow()
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(50, 'Shooter', (COLOR_ORANGE), ((WIN_WIDTH / 2), 25))
-            self.menu_text(50, 'City', (COLOR_ORANGE), ((WIN_WIDTH / 2), 80))
+            self.menu_text(50, 'Shooter', (C_ORANGE), ((WIN_WIDTH / 2), 25))
+            self.menu_text(50, 'City', (C_ORANGE), ((WIN_WIDTH / 2), 80))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_RAINBOW, ((WIN_WIDTH / 2), 150 + 30 * i))
+                    self.menu_text(20, MENU_OPTION[i], C_RAINBOW, ((WIN_WIDTH / 2), 150 + 30 * i))
                 else:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 150 + 30 * i))
+                    self.menu_text(20, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 150 + 30 * i))
             pygame.display.flip()
 
             # Check for all events

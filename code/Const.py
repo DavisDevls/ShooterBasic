@@ -4,7 +4,6 @@ import random
 import pygame
 
 
-
 def gerar_cor_rainbow():
     hue = random.random()
 
@@ -16,9 +15,11 @@ def gerar_cor_rainbow():
 
 
 # C
-COLOR_ORANGE = (255, 100, 50)
-COLOR_WHITE = (255, 255, 255)
-COLOR_RAINBOW = gerar_cor_rainbow()
+C_ORANGE = (255, 100, 50)
+C_WHITE = (255, 255, 255)
+C_RAINBOW = gerar_cor_rainbow()
+C_GREEN = (0, 128, 0)
+C_CYAN = (0, 128, 128)
 
 # E
 
@@ -36,7 +37,7 @@ ENTITY_SPEED = {
     'Enemy1': 2,
     'Enemy1Shot': 5,
     'Enemy2': 1,
-    'Enemy2Shot': 10,
+    'Enemy2Shot': 3,
 }
 
 ENTITY_SHOT_DELAY = {
@@ -44,6 +45,48 @@ ENTITY_SHOT_DELAY = {
     'Player2': 15,
     'Enemy1': 90,
     'Enemy2': 40,
+}
+
+ENTITY_DAMAGE = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
+    'Player1': 1,
+    'Player1Shot': 25,
+    'Player2': 1,
+    'Player2Shot': 25,
+    'Enemy1': 1,
+    'Enemy1Shot': 20,
+    'Enemy2': 1,
+    'Enemy2Shot': 20,
+}
+
+ENTITY_SCORE =  {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
+    'Player1': 0,
+    'Player1Shot': 0,
+    'Player2': 0,
+    'Player2Shot': 0,
+    'Enemy1': 50,
+    'Enemy1Shot': 0,
+    'Enemy2': 75,
+    'Enemy2Shot': 0,
 }
 
 ENTITY_HEALTH = {
