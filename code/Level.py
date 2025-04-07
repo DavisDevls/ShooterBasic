@@ -76,6 +76,7 @@ class Level:
                     if isinstance(ent, Player):
                         found_player = True
                 if not found_player:
+                    game_over_screen(self.window, player_score)
                     return False
 
             # printed text
@@ -93,3 +94,25 @@ class Level:
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         self.window.blit(source=text_surf, dest=text_rect)
+
+def game_over_screen(window: Surface, score: list[int]):
+    text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=25)
+    text_surf: Surface = text_font.render("GAME OVER", True, C_WHITE).convert_alpha()
+
+
+    text_rect: Rect = text_surf.get_rect(center=(window.get_width() / 2, window.get_height() / 2 - 50))
+
+
+    window.fill((0, 0, 0))
+    window.blit(text_surf, text_rect)
+
+
+    pygame.display.flip()
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                return
