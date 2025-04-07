@@ -43,7 +43,6 @@ class Score:
                         return
             pygame.display.flip()
 
-
     def save(self, game_mode: str, player_score: list[int]):
         pygame.mixer_music.load('./asset/Score.mp3')
         pygame.mixer_music.play(-1)
@@ -52,7 +51,9 @@ class Score:
 
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.score_text(48,'YOU WIN!!', gerar_cor_rainbow(), SCORE_POS['Title'])
+            self.score_text(48, 'YOU WIN!!', gerar_cor_rainbow(), SCORE_POS['Title'])
+            text = 'Enter Player 1 name(4 characters):'
+            score = player_score[0]
             if game_mode == MENU_OPTION[0]:
                 score = player_score[0]
                 text = 'Enter Player 1 name (4 characters):'
@@ -67,7 +68,6 @@ class Score:
                     score = player_score[1]
                     text = 'Enter Player 2 name (4 characters):'
             self.score_text(20, text, C_BLACK, SCORE_POS['EnterName'])
-
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -102,6 +102,8 @@ class Score:
 
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         self.window.blit(source=text_surf, dest=text_rect)
+
+
 def get_formatted_date():
     current_datetime = datetime.now()
     current_time = current_datetime.strftime("%H:%M")
